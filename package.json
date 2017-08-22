@@ -1,0 +1,26 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpeck99/ResponsiveImageGallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mpeck99/ResponsiveImageGallery/issues"
+  },
+  "homepage": "https://github.com/mpeck99/ResponsiveImageGallery#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "node": "^8.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
