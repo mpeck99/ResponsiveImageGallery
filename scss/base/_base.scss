@@ -1,19 +1,42 @@
 @import'utils/vars';
+
 #imageContainer
 {   display: flex;
     //height: 100%;
     flex-direction: column;
-    margin: 5px;
+    margin: 10px;
     bottom: 0px;
     position: relative;
+    align-items: center;
 }
 
+q, p
+{
+
+    font-size: 12px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
 .overlay 
 { 
     color: white;
     visibility: hidden;
     height: 0px;
+  
+}
+h1
+{
+    font-family:  $font-stack;
+    font-weight: $weight;
+    font-style: $font-style;
+    text-align: center;
+}
+#globe
+{
 
+    display: block;
+    margin: 0 auto;
 }
 .overlay h2
 {   
@@ -51,6 +74,7 @@
     height:175px;
     overflow: hidden;
     width: 1295px;
+    margin: 0 auto;
 
 }
 

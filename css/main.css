@@ -1,14 +1,31 @@
 #imageContainer {
   display: flex;
   flex-direction: column;
-  margin: 5px;
+  margin: 10px;
   bottom: 0px;
-  position: relative; }
+  position: relative;
+  align-items: center; }
+
+q, p {
+  font-size: 12px;
+  display: block;
+  margin: 10px auto;
+  text-align: center; }
 
 .overlay {
   color: white;
   visibility: hidden;
   height: 0px; }
+
+h1 {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center; }
+
+#globe {
+  display: block;
+  margin: 0 auto; }
 
 .overlay h2 {
   align-items: center;
@@ -40,7 +57,8 @@
   visibility: visible;
   height: 175px;
   overflow: hidden;
-  width: 1295px; }
+  width: 1295px;
+  margin: 0 auto; }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .cat:hover .overlay {
