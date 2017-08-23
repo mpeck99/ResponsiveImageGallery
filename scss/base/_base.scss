@@ -1,3 +1,4 @@
+@import'utils/vars';
 #imageContainer
 {   display: flex;
     //height: 100%;
@@ -18,6 +19,18 @@
 {   
     align-items: center;
     margin-right: 5px;
+    font-family:  $font-stack;
+    font-weight: $weight;
+    font-style: $font-style;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+.overlay h3
+{
+    font-family: $font-stack2;
+    margin-left: 5px;
+    margin-top: 25px;
 }
 .overlay img
 {
@@ -41,12 +54,12 @@
 
 }
 
-@media (min-width: 320px) and (max-width: 425px) 
+@media screen and (min-width:320px) and (max-width: 425px) 
 {
    .cat:hover .overlay
    {
         transform: translateY(-105px);
-        width: 98%;
+        width: 100%;
         height: 100px;
    }
    #userInfo, #likes
@@ -57,7 +70,16 @@
    }
 
 }
-@media (min-width: 426px) and (max-width: 768px)
+@media screen and(min-width: 426px)
+{
+    .cat:hover .overlay
+    {
+         transform: translateY(-105px);
+         width: 100%;
+
+    }   
+}
+@media screen and(min-width: 426px) and (max-width: 768px)
 {
     .cat:hover .overlay
     {
@@ -72,7 +94,7 @@
          flex-direction: row;
     }
 }
-@media (min-width: 769px)and (max-width: 1024px)
+@media screen and(min-width: 769px)and (max-width: 1024px)
 {
     .cat:hover .overlay
     {
