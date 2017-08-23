@@ -1,5 +1,6 @@
-var gulp=require('gulp')
-var sass=require('gulp-sass')
+var gulp=require('gulp');
+var sass=require('gulp-sass');
+//var responsive=require('gulp-responsive');
 var browserSync = require('browser-sync').create()
 gulp.task('default',function(){
 
@@ -23,3 +24,11 @@ gulp.task('browser-sync',function(){
 gulp.task('watch',['browser-sync','scss'],function(){
   gulp.watch('./scss/**/*.scss',['scss'])
 })
+/*gulp.task('images', function(){
+return gulp.src('src/*{jpg, png}')
+.pipe($.responsive({
+  '*.jpg': [{
+    width: 
+  }]
+}))
+})*/
