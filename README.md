@@ -1,0 +1,2 @@
+This is a responsive image gallery that uses Unsplash's developer api to pull in a query search for kittens. The goal of this respository is to demostrate my understanding of makig responsive images using srcsets and also my knowledge of CSS animations. 
+You can view this site locally at https://mpeck99.github.io/ResponsiveImageGallery
