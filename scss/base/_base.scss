@@ -12,7 +12,6 @@ body, html
     width: 960px;
     margin: 0 auto;
     height: 100%;
-
 }
 
 #imageContainer
@@ -45,7 +44,10 @@ q, p
     margin: 10px auto;
     text-align: center;
 }
-
+q
+{
+    font-style: italic;
+}
 .overlay 
 { 
     color: white;
@@ -53,6 +55,9 @@ q, p
     overflow: hidden;
     font-size: 10px;
     bottom: 0px;
+    margin: 0px;
+
+
 }
 .overlay img
 {
@@ -70,21 +75,29 @@ q, p
 h1
 {
     font-family:  $font-stack;
-    font-weight: $weight;
+    font-weight: bolder;
     font-style: $font-style;
     text-align: center;
     font-size: 48px;
     margin: 0px;
     padding: 0;
 }
-#globe
+#catImage
 {
-
+    margin-top: 20px !important;
     display: block;
+    width: 100px;
     margin: 0 auto;
+
 }
-
-
+.clickAnimation
+{
+  animation: rotateIcon 2s ease-in-out;
+}
+.backwardsRotation
+{
+    animation: rotateBackwards 2s ease-in-out backwards;
+}
 [class*="cat"]:hover .overlay
 {
     position: relative;
@@ -98,26 +111,33 @@ h1
     width: 120px;
     margin: 0 auto;
 }
-
-
-
+footer
+{
+   text-align: center;
+   a
+   {
+       text-decoration: none;
+       color: gray;
+   }
+}
 @media screen and (min-width:320px) and (max-width: 425px) 
 {
-   .cat:hover .overlay
-   {
-        transform: translateY(-105px);
-        width: 100%;
-        height: 100px;
-   }
-
- body, html
+    .cat:hover .overlay
     {
-        //display: flex;
+        animation-name: slideUp;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        height: 100px;
         width: 100%;
+    }
+
+    body, html
+    {
+        width: 75%;
         margin: 0 auto !important;
     }
 }
-@media screen and(min-width: 426px)
+/*@media screen and(min-width: 426px)
 {
    
     .cat:hover .overlay
@@ -126,37 +146,66 @@ h1
          width: 100%;
 
     }   
-}
-@media screen and(min-width: 426px) and (max-width: 768px)
+}*/
+@media screen and(min-width: 426px) and (max-width: 700px)
 {
+
     .cat:hover .overlay
     {
-         transform: translateY(-105px);
-         width: 95%;
-         height: 100px;
+        animation-name: slideUp;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        height: 100px;
+        width: 100%;
+    }
+    body, html
+    {
+        display: flex;
+        flex-direction: column;
+        width:95%;
+        
     }
 
 }
-@media screen and(min-width: 769px)and (max-width: 2400px)
+@media screen and(min-width: 701px)and (max-width: 2400px)
 {
     .cat:hover .overlay
     {
         animation-name: slideUp;
-        animation-duration: 5s;
+        animation-duration: 2s;
         animation-fill-mode: forwards;
         height: 100px;
+        width: 100%;
     }
-
 }
 
 @keyframes slideUp
 {
-    from
-    {
+    0%{
+
+        height: 0px;
+    }
+    100%{
         transform: translateY(-100px);
-        animation-timing-function: ease-in;
+        height: 100px;
+    }
+}
+
+@keyframes rotateIcon
+{
+    from{
+        transform: rotate(0deg);
     }
     to{
-       animation-timing-function: ease-in;
-   }
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotateBackwards
+{
+    from{
+        transform: rotate(360deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
 }

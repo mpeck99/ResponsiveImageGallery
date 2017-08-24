@@ -2,6 +2,7 @@ var apiCall=new XMLHttpRequest();
 var apiUrl='https://api.unsplash.com/search/photos/?client_id=f22bd1da324ce68cb2e00b193d9dc58e0d4ecae16b515259c8d3411301882389&page=1&query=kittens&per_page=9';
 var images="";
 var htmlData="";
+var animateObj=document.getElementById('catImage');
 function imageGallery()
 {
     fetch(apiUrl)
@@ -28,3 +29,18 @@ function imageGallery()
     })
 }
 window.addEventListener('load', imageGallery, false);
+
+function catClick()
+{
+    if(animateObj.className.match('clickAnimation'))
+    {
+        animateObj.className='backwardsRotation';
+    }
+    else
+    {
+       animateObj.className='clickAnimation';
+    }
+    
+}
+
+animateObj.addEventListener('click', catClick, false);
