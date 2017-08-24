@@ -37,7 +37,7 @@ body, html
 
 q, p
 {
-
+    color: #19647E;
     width: 100%;
     font-size: 16px;
     display: block;
@@ -46,7 +46,8 @@ q, p
 }
 q
 {
-    font-style: italic;
+
+    font-style: italic; 
 }
 .overlay 
 { 
@@ -79,7 +80,7 @@ h1
     font-style: $font-style;
     text-align: center;
     font-size: 48px;
-    margin: 0px;
+    margin: 10px;
     padding: 0;
 }
 #catImage
