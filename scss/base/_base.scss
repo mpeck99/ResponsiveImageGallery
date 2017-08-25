@@ -1,40 +1,19 @@
 @import'utils/vars';
+//overall styling of the html/body
 *
 {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    margin: 10;
-    padding: 10;
 }
 body, html
 {
     width: 960px;
-    margin: 0 auto;
+    margin: 0px auto;
     height: 100%;
-}
-
-#imageContainer
-{ 
-    margin: 10;
-    padding: 0;
-    height: 100%;
-}
-
-[class*='cat']
-{
-
-    float: left;
-    height: 30%;
-    margin: 10px;
-}
-[class*='cat'] img
-{
-    height: 100%;
-    width: 100%;
 
 }
-
+//styling of the quotes, paragraph and headings
 q, p
 {
     color: #19647E;
@@ -46,32 +25,7 @@ q, p
 }
 q
 {
-
     font-style: italic; 
-}
-.overlay 
-{ 
-    color: white;
-    visibility: hidden;
-    overflow: hidden;
-    font-size: 10px;
-    bottom: 0px;
-    margin: 0px;
-
-
-}
-.overlay img
-{
-    height: 10px;
-    margin-top: 10px;
-    padding: 0px;
-    float: left;
-    width: 10%;
-}
-.overlay h2
-{
-    width: 90%;
-
 }
 h1
 {
@@ -82,27 +36,32 @@ h1
     font-size: 48px;
     margin: 10px;
     padding: 0;
+    color: #37383B;
 }
-#catImage
-{
-    margin-top: 20px !important;
-    display: block;
-    width: 100px;
-    margin: 0 auto;
+//Api pictures styling
+#imageContainer
+{ 
+    margin: 0px;
+    padding: 0;
+    height: 100%;
+}
 
-}
-.clickAnimation
+[class*='cat']
 {
-  animation: rotateIcon 2s ease-in-out;
+
+    float: left;
+    height: 30%;
+    margin: 15px;
 }
-.backwardsRotation
+[class*='cat'] img
 {
-    animation: rotateBackwards 2s ease-in-out backwards;
+    height: 100%;
+    width: 100%;
+
 }
 [class*="cat"]:hover .overlay
 {
     position: relative;
-
     animation-name: slideUp;
     animation-duration: .2s;
     background-color: rgba(0,0,0, .8);
@@ -112,15 +71,76 @@ h1
     width: 120px;
     margin: 0 auto;
 }
+//overlay/caption styling
+.overlay 
+{ 
+    color: white;
+    visibility: hidden;
+    overflow: hidden;
+    font-size: 10px;
+    bottom: 0px;
+    margin: 0px;
+}
+.overlay img
+{
+    height: 15px;
+    margin-top: 10px;
+    padding: 0px;
+    float: left;
+    width: 10%;
+}
+.overlay h3
+{
+    margin-top: 22px;
+    font-family: Georgia, sans-serif;
+    font-size: 16px;
+}
+.overlay h2
+{
+    font-family: Georgia, sans-serif;
+    font-size: 16px;
+}
+//aligning the cat icon at the top of the page
+#catImage
+{
+    margin-top: 20px !important;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+//footer styling
 footer
 {
-   text-align: center;
-   a
-   {
+    text-align: center;
+    bottom: 0px;
+    a
+    {
        text-decoration: none;
        color: gray;
-   }
+    }
 }
+//2nd animation that rotates the icon when it is clicked
+.clickAnimation
+{
+  animation: rotateIcon 2s ease-in-out;
+}
+//rotates icon backwards
+.backwardsRotation
+{
+    animation: rotateBackwards 2s ease-in-out backwards;
+}
+.color1
+{
+    animation: colorChange1 6s ease-in;
+}
+.font1
+{
+    animation: colorChange2 6s ease-out;
+}
+
+//media queries
+
+//mobile
 @media screen and (min-width:320px) and (max-width: 425px) 
 {
     .cat:hover .overlay
@@ -131,24 +151,39 @@ footer
         height: 100px;
         width: 100%;
     }
-
     body, html
     {
-        width: 75%;
+        width: 90%;
         margin: 0 auto !important;
+    } 
+     h1
+    {
+        font-size: 28px;
+    }
+    .overlay h2, .overlay h3
+    {
+        font-size: 12px;
     }
 }
-/*@media screen and(min-width: 426px)
+@media screen and(min-width: 426px)and (max-width:701px)
 {
-   
     .cat:hover .overlay
     {
-         transform: translateY(-105px);
          width: 100%;
 
     }   
-}*/
-@media screen and(min-width: 426px) and (max-width: 700px)
+    #imageContainer, .cat
+    {
+        width: 90%;
+        align-self: center;
+    }
+    .overlay h2, .overlay h3
+    {
+        font-size: 12px;
+    }
+}
+//tablet
+@media screen and(min-width: 426px) and (max-width: 768px)
 {
 
     .cat:hover .overlay
@@ -163,12 +198,20 @@ footer
     {
         display: flex;
         flex-direction: column;
-        width:95%;
-        
+        width:85%;
+        align-content: center;
     }
-
+    h1
+    {
+        font-size: 36px;
+    }
+    .overlay h2, .overlay h3
+    {
+        font-size: 12px;
+    }
 }
-@media screen and(min-width: 701px)and (max-width: 2400px)
+//desktop
+@media screen and(min-width: 768px)
 {
     .cat:hover .overlay
     {
@@ -178,8 +221,36 @@ footer
         height: 100px;
         width: 100%;
     }
+   .cat
+    {
+        width: 45%;
+    }
+    .overlay h2, .overlay h3
+    {
+        font-size: 14px;
+    }
 }
+@media screen and(min-width: 769px)and (max-width: 2400px)
+{
+    .cat:hover .overlay
+    {
+        animation-name: slideUp;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        height: 100px;
+        width: 100%;
+    }
 
+    .cat 
+    {
+        width:30%;
+        //align-self: center;
+    }
+
+}
+//keyframes for animations
+
+//slides up the overlay on hover
 @keyframes slideUp
 {
     0%{
@@ -191,7 +262,7 @@ footer
         height: 100px;
     }
 }
-
+//rotates the icon based off of the assigned class when it is clicked
 @keyframes rotateIcon
 {
     from{
@@ -208,5 +279,43 @@ footer
     }
     to{
         transform: rotate(0deg);
+    }
+}
+@keyframes colorChange1
+{
+    0%{
+        color: #084c61;
+        transform: skew(10deg);
+    }
+    25%{
+        color: #ff715b; 
+        transform: skew(-10deg);
+    }
+    50%{
+        color: #17a398;
+        transform: skew(10deg);
+    }
+    100%{
+        color: #cc2936;
+        transform: skew(-10deg);
+    }
+}
+@keyframes colorChange2
+{
+    0%{
+        color: #F6511D;
+        transform: skew(-10deg);
+    }
+    25%{
+        color: #7FB800;
+        transform: skew(10deg);
+    }
+    50%{
+        color: #A755C2 ;
+        transform: skew(-10deg);
+    }
+    100%{
+        color: #FF206E;
+        transform: skew(10deg);
     }
 }

@@ -1,28 +1,12 @@
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  margin: 10;
-  padding: 10; }
+  -webkit-box-sizing: border-box; }
 
 body, html {
   width: 960px;
-  margin: 0 auto;
+  margin: 0px auto;
   height: 100%; }
-
-#imageContainer {
-  margin: 10;
-  padding: 0;
-  height: 100%; }
-
-[class*='cat'] {
-  float: left;
-  height: 30%;
-  margin: 10px; }
-
-[class*='cat'] img {
-  height: 100%;
-  width: 100%; }
 
 q, p {
   color: #19647E;
@@ -35,24 +19,6 @@ q, p {
 q {
   font-style: italic; }
 
-.overlay {
-  color: white;
-  visibility: hidden;
-  overflow: hidden;
-  font-size: 10px;
-  bottom: 0px;
-  margin: 0px; }
-
-.overlay img {
-  height: 10px;
-  margin-top: 10px;
-  padding: 0px;
-  float: left;
-  width: 10%; }
-
-.overlay h2 {
-  width: 90%; }
-
 h1 {
   font-family: futura-pt, sans-serif;
   font-weight: bolder;
@@ -60,19 +26,22 @@ h1 {
   text-align: center;
   font-size: 48px;
   margin: 10px;
-  padding: 0; }
+  padding: 0;
+  color: #37383B; }
 
-#catImage {
-  margin-top: 20px !important;
-  display: block;
-  width: 100px;
-  margin: 0 auto; }
+#imageContainer {
+  margin: 0px;
+  padding: 0;
+  height: 100%; }
 
-.clickAnimation {
-  animation: rotateIcon 2s ease-in-out; }
+[class*='cat'] {
+  float: left;
+  height: 30%;
+  margin: 15px; }
 
-.backwardsRotation {
-  animation: rotateBackwards 2s ease-in-out backwards; }
+[class*='cat'] img {
+  height: 100%;
+  width: 100%; }
 
 [class*="cat"]:hover .overlay {
   position: relative;
@@ -85,11 +54,54 @@ h1 {
   width: 120px;
   margin: 0 auto; }
 
+.overlay {
+  color: white;
+  visibility: hidden;
+  overflow: hidden;
+  font-size: 10px;
+  bottom: 0px;
+  margin: 0px; }
+
+.overlay img {
+  height: 15px;
+  margin-top: 10px;
+  padding: 0px;
+  float: left;
+  width: 10%; }
+
+.overlay h3 {
+  margin-top: 22px;
+  font-family: Georgia, sans-serif;
+  font-size: 16px; }
+
+.overlay h2 {
+  font-family: Georgia, sans-serif;
+  font-size: 16px; }
+
+#catImage {
+  margin-top: 20px !important;
+  display: block;
+  width: 100px;
+  margin: 0 auto; }
+
 footer {
-  text-align: center; }
+  text-align: center;
+  bottom: 0px; }
   footer a {
     text-decoration: none;
     color: gray; }
+
+.clickAnimation {
+  animation: rotateIcon 2s ease-in-out; }
+
+.backwardsRotation {
+  animation: rotateBackwards 2s ease-in-out backwards; }
+
+.color1 {
+  animation: colorChange1 6s ease-in; }
+
+.font1 {
+  animation: colorChange2 6s ease-out; }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .cat:hover .overlay {
@@ -99,20 +111,23 @@ footer {
     height: 100px;
     width: 100%; }
   body, html {
-    width: 75%;
-    margin: 0 auto !important; } }
+    width: 90%;
+    margin: 0 auto !important; }
+  h1 {
+    font-size: 28px; }
+  .overlay h2, .overlay h3 {
+    font-size: 12px; } }
 
-/*@media screen and(min-width: 426px)
-{
-   
-    .cat:hover .overlay
-    {
-         transform: translateY(-105px);
-         width: 100%;
+@media screen and (min-width: 426px) and (max-width: 701px) {
+  .cat:hover .overlay {
+    width: 100%; }
+  #imageContainer, .cat {
+    width: 90%;
+    align-self: center; }
+  .overlay h2, .overlay h3 {
+    font-size: 12px; } }
 
-    }   
-}*/
-@media screen and (min-width: 426px) and (max-width: 700px) {
+@media screen and (min-width: 426px) and (max-width: 768px) {
   .cat:hover .overlay {
     animation-name: slideUp;
     animation-duration: 2s;
@@ -122,15 +137,34 @@ footer {
   body, html {
     display: flex;
     flex-direction: column;
-    width: 95%; } }
+    width: 85%;
+    align-content: center; }
+  h1 {
+    font-size: 36px; }
+  .overlay h2, .overlay h3 {
+    font-size: 12px; } }
 
-@media screen and (min-width: 701px) and (max-width: 2400px) {
+@media screen and (min-width: 768px) {
   .cat:hover .overlay {
     animation-name: slideUp;
     animation-duration: 2s;
     animation-fill-mode: forwards;
     height: 100px;
-    width: 100%; } }
+    width: 100%; }
+  .cat {
+    width: 45%; }
+  .overlay h2, .overlay h3 {
+    font-size: 14px; } }
+
+@media screen and (min-width: 769px) and (max-width: 2400px) {
+  .cat:hover .overlay {
+    animation-name: slideUp;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    height: 100px;
+    width: 100%; }
+  .cat {
+    width: 30%; } }
 
 @keyframes slideUp {
   0% {
@@ -150,3 +184,31 @@ footer {
     transform: rotate(360deg); }
   to {
     transform: rotate(0deg); } }
+
+@keyframes colorChange1 {
+  0% {
+    color: #084c61;
+    transform: skew(10deg); }
+  25% {
+    color: #ff715b;
+    transform: skew(-10deg); }
+  50% {
+    color: #17a398;
+    transform: skew(10deg); }
+  100% {
+    color: #cc2936;
+    transform: skew(-10deg); } }
+
+@keyframes colorChange2 {
+  0% {
+    color: #F6511D;
+    transform: skew(-10deg); }
+  25% {
+    color: #7FB800;
+    transform: skew(10deg); }
+  50% {
+    color: #A755C2;
+    transform: skew(-10deg); }
+  100% {
+    color: #FF206E;
+    transform: skew(10deg); } }
