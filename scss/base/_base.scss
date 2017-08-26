@@ -1,4 +1,5 @@
 @import'utils/vars';
+@import 'utils/mixins';
 //overall styling of the html/body
 *
 {
@@ -8,20 +9,16 @@
 }
 body, html
 {
-    width: 960px;
-    margin: 0px auto;
-    height: 100%;
-
+    @include commonElements(960px, 100%, 0px auto);
 }
 //styling of the quotes, paragraph and headings
 q, p
 {
-    color: #19647E;
-    width: 100%;
-    font-size: 16px;
+    color: $quoteColor;
     display: block;
-    margin: 10px auto;
     text-align: center;
+    @include fontInfo(16px, none, $font-stack2, none);
+    @include commonElements(100%,15px, 10px auto);
 }
 q
 {
@@ -29,16 +26,13 @@ q
 }
 h1
 {
-    font-family:  $font-stack;
-    font-weight: bolder;
-    font-style: $font-style;
-    text-align: center;
-    font-size: 48px;
+    @include fontInfo(48px, bolder, $font-stack, $font-style);
+    text-align: $text-center;
     margin: 10px;
     padding: 0;
-    color: #37383B;
+    color: $headingColor;
 }
-//Api pictures styling
+//Api pictures/grid styling
 #imageContainer
 { 
     margin: 0px;
@@ -48,35 +42,28 @@ h1
 
 [class*='cat']
 {
-
     float: left;
     height: 30%;
     margin: 15px;
 }
 [class*='cat'] img
 {
-    height: 100%;
-    width: 100%;
-
+    @include commonElements(100%, 100%, auto);
 }
 [class*="cat"]:hover .overlay
 {
-    position: relative;
-    animation-name: slideUp;
-    animation-duration: .2s;
-    background-color: rgba(0,0,0, .8);
+    background-color: $overlayColor;
     visibility: visible;
-    height: 10px;
     overflow: hidden;
-    width: 120px;
-    margin: 0 auto;
+    position: relative;
+    @include animationInfo(slideUp, .2s, none, ease-in-out);
+    @include commonElements(100%, 10px, 0px auto);
 }
 //overlay/caption styling
 .overlay 
 { 
-    color: white;
-    visibility: hidden;
-    overflow: hidden;
+    color: $captionColor;
+    @include visibileOverflow(hidden, none);
     font-size: 10px;
     bottom: 0px;
     margin: 0px;
@@ -92,13 +79,11 @@ h1
 .overlay h3
 {
     margin-top: 22px;
-    font-family: Georgia, sans-serif;
-    font-size: 16px;
+    @include fontInfo(16px, none, $font-stack2, none);
 }
 .overlay h2
 {
-    font-family: Georgia, sans-serif;
-    font-size: 16px;
+    @include fontInfo(18px, none, $font-stack2, none);
 }
 //aligning the cat icon at the top of the page
 #catImage
@@ -111,41 +96,41 @@ h1
 //footer styling
 footer
 {
-    text-align: center;
+    text-align: $text-center;
     bottom: 0px;
     a
     {
        text-decoration: none;
-       color: gray;
+       color: $footerColor;
     }
 }
 //2nd animation that rotates the icon when it is clicked
 .clickAnimation
 {
-  animation: rotateIcon 2s ease-in-out;
+    @include animationInfo(rotateIcon, 2s, none, ease-in-out);
 }
 //rotates icon backwards
 .backwardsRotation
 {
-    animation: rotateBackwards 2s ease-in-out backwards;
+    @include animationInfo(rotateBackwards, 2s, none, ease-in-out);
 }
+//changes color of the element with the name .color1
 .color1
 {
-    animation: colorChange1 6s ease-in;
+    @include animationInfo(colorChange1, 6s, none, ease-in-out);
 }
+//changes the color of the element with the name .font1(heading 1's original class)
 .font1
 {
-    animation: colorChange2 6s ease-out;
+    @include animationInfo(colorChange2, 6s, none, ease-in-out);
 }
 //media queries
-//mobile
+    //mobile
 @media screen and (min-width:320px) and (max-width: 425px) 
 {
     .cat:hover .overlay
     {
-        animation-name: slideUp;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
+        @include animationInfo(slideUp, .2s, forwards, ease-in-out);
         height: 100px;
         width: 100%;
     }
@@ -158,20 +143,17 @@ footer
     {
         font-size: 28px;
     }
-    .overlay h2, .overlay h3
+    .overlay h2, .overlay h3, p, q
     {
         font-size: 12px;
     }
 }
-
 //tablet
 @media screen and(min-width: 426px) and (max-width: 768px)
 {
     .cat:hover .overlay
     {
-        animation-name: slideUp;
-        animation-duration: .2s;
-        animation-fill-mode: forwards;
+        @include animationInfo(slideUp, .2s, forwards, ease-in-out);
         height: 100px;
         width: 100%;
     }
@@ -186,26 +168,22 @@ footer
     {
         font-size: 36px;
     }
-    .overlay h2, .overlay h3
+    .overlay h2, .overlay h3, p, q
     {
-        font-size: 12px;
+        font-size: 14px;
     }
-    
 }
-//desktop
-@media screen and(min-width: 768px)
+    //desktop
+@media screen and (min-width: 703px) and(max-width: 768px)
 {
     .cat:hover .overlay
     {
-        animation-name: slideUp;
-        animation-duration: .2s;
-        animation-fill-mode: forwards;
-        height: 100px;
-        width: 100%;
+        @include animationInfo(slideUp, .2s, forwards, ease-in-out);
+        @include commonElements(100%, 100px, auto);
     }
    .cat
     {
-        width: 45%;
+        width: 45%; 
     }
     .overlay h2, .overlay h3
     {
@@ -216,9 +194,7 @@ footer
 {
     .cat:hover .overlay
     {
-        animation-name: slideUp;
-        animation-duration: .2s;
-        animation-fill-mode: forwards;
+        @include animationInfo(slideUp, .2s, forwards, ease-in-out);
         height: 100px;
         width: 100%;
     }
@@ -228,7 +204,7 @@ footer
     }
 }
 //keyframes for animations
-//slides up the overlay on hover
+    //slides up the overlay on hover
 @keyframes slideUp
 {
     0%{
@@ -236,64 +212,67 @@ footer
         height: 0px;
     }
     100%{
-        transform: translateY(-100px);
+        transform: translateY(-105px);
         height: 100px;
     }
 }
-//rotates the icon based off of the assigned class when it is clicked
+    //rotates the icon based off of the assigned class when it is clicked
 @keyframes rotateIcon
 {
     from{
-        transform: rotate(0deg);
+        transform: rotate($stop);
     }
     to{
-        transform: rotate(360deg);
+        transform: rotate($full);
     }
 }
+    //rotates Icon in opposite directin then above
 @keyframes rotateBackwards
 {
     from{
-        transform: rotate(360deg);
+        transform: rotate($full);
     }
     to{
-        transform: rotate(0deg);
+        transform: rotate($stop);
     }
 }
+    //changes the color of the font first time icon is clicked
 @keyframes colorChange1
 {
     0%{
-        color: #084c61;
-        transform: skew(10deg);
+        color: $color1;
+        transform: skew($skewRight);
     }
     25%{
-        color: #ff715b; 
-        transform: skew(-10deg);
+        color: $color2; 
+        transform: skew($skewLeft);
     }
     50%{
-        color: #17a398;
-        transform: skew(10deg);
+        color:$color3;
+        transform: skew($skewRight);
     }
     100%{
-        color: #cc2936;
-        transform: skew(-10deg);
+        color: $color4;
+        transform: skew($skewLeft);
     }
 }
+    //changes the font color again after icon is clicked 2nd time
 @keyframes colorChange2
 {
     0%{
-        color: #F6511D;
-        transform: skew(-10deg);
+        color: $color5;
+        transform: skew($skewLeft);
     }
     25%{
-        color: #7FB800;
-        transform: skew(10deg);
+        color: $color6;
+        transform: skew($skewRight);
     }
     50%{
-        color: #A755C2 ;
-        transform: skew(-10deg);
+        color: $color7 ;
+        transform: skew($skewLeft);
     }
     100%{
-        color: #FF206E;
-        transform: skew(10deg);
+        color: $color8;
+        transform: skew($skewRight);
     }
 }

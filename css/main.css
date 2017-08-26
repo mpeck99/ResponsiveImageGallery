@@ -5,29 +5,33 @@
 
 body, html {
   width: 960px;
-  margin: 0px auto;
-  height: 100%; }
+  height: 100%;
+  margin: 0px auto; }
 
 q, p {
   color: #19647E;
-  width: 100%;
-  font-size: 16px;
   display: block;
-  margin: 10px auto;
-  text-align: center; }
+  text-align: center;
+  font-family: Georgia, sans-serif;
+  font-size: 16px;
+  font-weight: none;
+  font-style: none;
+  width: 100%;
+  height: 15px;
+  margin: 10px auto; }
 
 q {
   font-style: italic; }
 
 h1 {
   font-family: futura-pt, sans-serif;
+  font-size: 48px;
   font-weight: bolder;
   font-style: normal;
   text-align: center;
-  font-size: 48px;
   margin: 10px;
   padding: 0;
-  color: #37383B; }
+  color: #37383b; }
 
 #imageContainer {
   margin: 0px;
@@ -40,24 +44,27 @@ h1 {
   margin: 15px; }
 
 [class*='cat'] img {
+  width: 100%;
   height: 100%;
-  width: 100%; }
+  margin: auto; }
 
 [class*="cat"]:hover .overlay {
-  position: relative;
-  animation-name: slideUp;
-  animation-duration: .2s;
   background-color: rgba(0, 0, 0, 0.8);
   visibility: visible;
-  height: 10px;
   overflow: hidden;
-  width: 120px;
-  margin: 0 auto; }
+  position: relative;
+  animation-name: slideUp;
+  animation-duration: 0.2s;
+  animation-fill-mode: none;
+  animation-timing-function: ease-in-out;
+  width: 100%;
+  height: 10px;
+  margin: 0px auto; }
 
 .overlay {
-  color: white;
+  color: #ffffff;
   visibility: hidden;
-  overflow: hidden;
+  overflow: none;
   font-size: 10px;
   bottom: 0px;
   margin: 0px; }
@@ -72,11 +79,15 @@ h1 {
 .overlay h3 {
   margin-top: 22px;
   font-family: Georgia, sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  font-weight: none;
+  font-style: none; }
 
 .overlay h2 {
   font-family: Georgia, sans-serif;
-  font-size: 16px; }
+  font-size: 18px;
+  font-weight: none;
+  font-style: none; }
 
 #catImage {
   margin-top: 20px !important;
@@ -92,22 +103,35 @@ footer {
     color: gray; }
 
 .clickAnimation {
-  animation: rotateIcon 2s ease-in-out; }
+  animation-name: rotateIcon;
+  animation-duration: 2s;
+  animation-fill-mode: none;
+  animation-timing-function: ease-in-out; }
 
 .backwardsRotation {
-  animation: rotateBackwards 2s ease-in-out backwards; }
+  animation-name: rotateBackwards;
+  animation-duration: 2s;
+  animation-fill-mode: none;
+  animation-timing-function: ease-in-out; }
 
 .color1 {
-  animation: colorChange1 6s ease-in; }
+  animation-name: colorChange1;
+  animation-duration: 6s;
+  animation-fill-mode: none;
+  animation-timing-function: ease-in-out; }
 
 .font1 {
-  animation: colorChange2 6s ease-out; }
+  animation-name: colorChange2;
+  animation-duration: 6s;
+  animation-fill-mode: none;
+  animation-timing-function: ease-in-out; }
 
 @media screen and (min-width: 320px) and (max-width: 425px) {
   .cat:hover .overlay {
     animation-name: slideUp;
-    animation-duration: 2s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
     height: 100px;
     width: 100%; }
   body, html {
@@ -115,14 +139,15 @@ footer {
     margin: 0 auto !important; }
   h1 {
     font-size: 28px; }
-  .overlay h2, .overlay h3 {
+  .overlay h2, .overlay h3, p, q {
     font-size: 12px; } }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
   .cat:hover .overlay {
     animation-name: slideUp;
-    animation-duration: .2s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
     height: 100px;
     width: 100%; }
   body, html {
@@ -132,16 +157,18 @@ footer {
     align-content: center; }
   h1 {
     font-size: 36px; }
-  .overlay h2, .overlay h3 {
-    font-size: 12px; } }
+  .overlay h2, .overlay h3, p, q {
+    font-size: 14px; } }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 703px) and (max-width: 768px) {
   .cat:hover .overlay {
     animation-name: slideUp;
-    animation-duration: .2s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    width: 100%;
     height: 100px;
-    width: 100%; }
+    margin: auto; }
   .cat {
     width: 45%; }
   .overlay h2, .overlay h3 {
@@ -150,8 +177,9 @@ footer {
 @media screen and (min-width: 769px) and (max-width: 2400px) {
   .cat:hover .overlay {
     animation-name: slideUp;
-    animation-duration: .2s;
+    animation-duration: 0.2s;
     animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
     height: 100px;
     width: 100%; }
   .cat {
@@ -161,7 +189,7 @@ footer {
   0% {
     height: 0px; }
   100% {
-    transform: translateY(-100px);
+    transform: translateY(-105px);
     height: 100px; } }
 
 @keyframes rotateIcon {
@@ -192,14 +220,14 @@ footer {
 
 @keyframes colorChange2 {
   0% {
-    color: #F6511D;
+    color: #f6511d;
     transform: skew(-10deg); }
   25% {
-    color: #7FB800;
+    color: #7fb800;
     transform: skew(10deg); }
   50% {
-    color: #A755C2;
+    color: #a755c2;
     transform: skew(-10deg); }
   100% {
-    color: #FF206E;
+    color: #ff206e;
     transform: skew(10deg); } }

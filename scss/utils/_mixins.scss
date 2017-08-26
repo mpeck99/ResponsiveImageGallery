@@ -1,0 +1,29 @@
+//mixin of common elements width, height and margin
+@mixin commonElements($width, $height, $margin)
+{
+    width: $width;
+    height: $height;
+    margin: $margin;
+}
+//mixin for the common font elements: size, weight, family, style
+@mixin fontInfo($size, $weight, $family, $style)
+{
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    font-style: $style;
+}
+//mixin for the common animation information
+@mixin animationInfo($name, $duration, $fill, $ease)
+{
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-fill-mode: $fill;
+    animation-timing-function: $ease;
+}
+//mixin for the common visibility and overflow info
+@mixin visibileOverflow($visibility, $overflow)
+{
+    visibility: $visibility;
+    overflow: $overflow;
+}
