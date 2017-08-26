@@ -184,7 +184,8 @@ footer {
     height: 100px;
     width: 100%; }
   .cat {
-    width: 30%; } }
+    width: 30%;
+    height: 30%; } }
 
 @keyframes slideUp {
   0% {
